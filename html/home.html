@@ -100,7 +100,7 @@
       <div class="main_title_wrapper">
         <div class="main_title">
           <div class="title_wrapper">
-            <ul class="title_content" id="nav_insert">
+            <ul class="title_content nav_insert">
               <!-- 伪结构 -->
               <!--
               <li>
@@ -289,27 +289,32 @@
         <noscript class="no_script">ERROR!your browser does not support JavaScript!Please check!</noscript>
         <!-- 轮播图 -->
         <div class="banner_wrap">
+          <div class="swiper_wrapper carousel_img_insert">
           <!-- 伪结构 -->
-          <div class="swiper_wrapper">
           <!-- 大图插入点 -->
-            <div class="swiper_slide">
+          <!--
+            <div class="swiper_slide carousel_img_active">
               <a href="#">
                 <img src="https://resource.smartisan.com/resource/89812f25914767697686e330ab28a5b6.jpg?x-oss-process=image/resize,w_1220/format,webp/quality,Q_95" alt="banner" class="banner_img">
               </a>
-            </div>
+            </div>-->
           </div>
-          <div class="swiper_pagination">
+          <div class="swiper_pagination carousel_tab_insert">
             <!-- 切换按钮插入 -->
-            <span class="swiper_pagination_bullet"></span>
+            <!-- 
+            <span class="swiper_pagination_bullet carousel_active"></span>
+            -->
           </div>
         </div>
         <!-- 热门活动 -->
-        <section class="activities_wrap">
+        <section class="activities_wrap hot_active_insert">
           <!-- 伪结构 热门活动插入点-->
+          <!--  
           <figure class="advertise">
             <img src="https://resource.smartisan.com/resource/eca4f286fde41cebb778dc4f8bf055df.jpg?x-oss-process=image/resize,w_600/format,webp" alt="广告位图片">
             <a href="###" class="ad_click_mask"></a>
           </figure>
+          -->
         </section>
         <!-- 热门商品 -->
         <section class="common_normal_box">
@@ -320,9 +325,9 @@
               <button class="btn_right"></button>
             </aside>
           </header>
-          <aside class="common_flex_box">
+          <aside class="common_flex_box hot_goods_insert">
             <!-- 伪结构 热门商品插入点-->
-            <section class="spu_item_normal_box">
+            <!-- <section class="spu_item_normal_box">
               <figure class="item_cover">
                 <a href="###"><img src="###" alt="商品图片"></a>
               </figure>
@@ -332,18 +337,18 @@
                   智能配对 开盖即连
                 </h5>
               </article>
-              <aside class="item_attr_colors">
+              <aside class="item_attr_colors"> -->
                 <!-- 插入多个颜色图片切换点 划入时加class：active并改变商品数据，暂时不考虑
                 <figure class="outer active">
                   <img src="###">
                 </figure> -->
-              </aside>
+              <!-- </aside>
               <article class="item_price">
                 <span>￥199.00</span>
                 <span class="orignal_price">￥249.00</span>
-              </article>
+              </article> -->
               <!-- 打折活动标签暂时不考虑 -->
-            </section>
+            <!-- </section> -->
           </aside>
         </section>
         <!-- 常规商品 -->
@@ -378,7 +383,7 @@
           </section>
         </div>
         <!-- 论坛精选 -->
-        <section class="common_normal_box">
+        <section class="common_normal_box normal_shop_insert">
           <header>
             <h5>论坛精选</h5>
             <a href="http://bbs.smartisan.com/forum.php" target="_blank" class="right_operation">

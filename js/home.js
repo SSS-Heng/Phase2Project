@@ -1,4 +1,4 @@
-define(["jquery-1.11.3.min","home_insert"],function($,I){
+define(["jquery-1.11.3.min","home_insert","home_behavior"],function($,I,B){
   //json读取并绘制主页html（不包括购物车）
   function insert(){
     //二级导航加载数据并插入节点
@@ -61,7 +61,7 @@ define(["jquery-1.11.3.min","home_insert"],function($,I){
           }
           str += `</ul></div></div></li>`;
         }
-        $(`${str}`).prependTo($("#nav_insert"));
+        $(`${str}`).prependTo($(".nav_insert"));
       },
       error: function(msg){
         console.log(msg);
@@ -89,8 +89,12 @@ define(["jquery-1.11.3.min","home_insert"],function($,I){
       }
     })
   }
-
-  function behavior(){}
+  //主页个别动作设置
+  function behavior(){
+    B.ca();
+    B.n_s();
+    B.h_g_o();
+  }
   return {
     ins:insert,
     beh:behavior

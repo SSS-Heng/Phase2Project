@@ -6,8 +6,12 @@ require.config({
   },
   shim:{
     "jquery_cookie":{deps:["jquery"]},
-    "home":{deps:["home_insert","jquery"]},
-    "home_insert":{deps:["jquery"]}
+    "home":{deps:["home_insert","jquery","home_behavior"]},
+    "home_insert":{deps:["jquery"]},
+    "home_behavior":{deps:["jquery"]}
   }
 })
-require(["jquery","home"],function($,H){})
+require(["jquery","home"],function($,H){
+  H.ins();
+  H.beh();
+})

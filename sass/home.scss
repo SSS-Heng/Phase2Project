@@ -1113,17 +1113,32 @@ div.content_wrap{
           flex-shrink: 0;
           width: 100%;
           width: 1218px;
-          opacity: 1;
+          opacity: 0;
           height: 100%;
           position: absolute;
-          z-index: calc(0+2);
+          z-index: 2;
           transition: all 1s ease-in-out;
           -webkit-transition: all 1s ease-in-out;
           -moz-transition: all 1s ease-in-out;
           -ms-transition: all 1s ease-in-out;
           -o-transition: all 1s ease-in-out;
+          a{
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
           img.banner_img{
             width: 100%;
+            height: 100%;
+          }
+          &.carousel_img_active{
+            opacity: 1;
+            z-index: 3;
+            transition: all 1s ease-in-out;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -ms-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
           }
         }
       }
@@ -1136,13 +1151,17 @@ div.content_wrap{
         z-index: 10;
         span.swiper_pagination_bullet{
           margin: 0 4px;
-          background: #fff;//非活跃下为 #000
-          opacity: 1;//非活跃下为0.2
+          background: #000;
+          opacity: 0.2;
           cursor: pointer;
           width: 8px;
           height: 8px;
           display: inline-block;
           border-radius: 100%;
+          &.carousel_active{
+            background: #fff;
+            opacity: 1;
+          }
         }
       }
     }
