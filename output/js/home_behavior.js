@@ -1,6 +1,12 @@
 "use strict";
 
-define(["jquery-1.11.3.min"], function ($) {
+define(["jquery"], function ($) {
+  function check() {
+    console.log("home_behavior.js开始执行");
+  }
+  function end() {
+    console.log("home_behavior.js执行结束");
+  }
   //轮播图动画
   function carousel() {
     var aBtns = $(".carousel_tab_insert").find("span");
@@ -41,6 +47,9 @@ define(["jquery-1.11.3.min"], function ($) {
   }
   //热门商品切换动画
   function hot_goods_operation() {
+    $("button").focus(function () {
+      $("button").css("outline", "0");
+    });
     $(".btn_left").click(function () {
       $(".btn_left").addClass("disabled");
       $(".btn_right").removeClass("disabled");
@@ -68,8 +77,10 @@ define(["jquery-1.11.3.min"], function ($) {
     });
   }
   return {
+    check: check,
     ca: carousel,
     h_g_o: hot_goods_operation,
-    n_s: nav_scroll
+    n_s: nav_scroll,
+    end: end
   };
 });

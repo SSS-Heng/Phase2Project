@@ -1,11 +1,18 @@
 "use strict";
 
-define(["jquery-1.11.3.min", "home_insert", "home_behavior"], function ($, I, B) {
+define(["jquery", "home_insert", "home_behavior"], function ($, I, B) {
+  function check() {
+    console.log("home.js开始执行");
+    console.log($ ? "ok" : "error");
+  }
+  function end() {
+    console.log("home.js执行结束");
+  }
   //json读取并绘制主页html（不包括购物车）
   function insert() {
     //二级导航加载数据并插入节点
     $.ajax({
-      url: "json/second_nav.json",
+      url: "../json/second_nav.json",
       success: function success(json_arr) {
         var nav = json_arr;
         var str = "";
@@ -25,8 +32,15 @@ define(["jquery-1.11.3.min", "home_insert", "home_behavior"], function ($, I, B)
             str += "<li class=\"item\">";
             if (type == "category") {
               //种类导航
-              str += "\n              <div class=\"container\">\n                <div class=\"title\">\n                  <a href=\"#\">" + nav_list[j].title + "</a>\n                </div>\n                <ul class=\"category_container\">\n              ";
               var nav_list_sub = nav_list[j].sub;
+              str += "\n              <div class=\"container\">\n                <div class=\"title\">\n                  <a href=\"#\">" + nav_list[j].title + "</a>\n                </div>\n              ";
+              if (nav_list_sub.length > 8) {
+                str += "<ul class=\"category_container\" style=\"width:606px\">";
+              } else if (nav_list_sub.length > 4) {
+                str += "<ul class=\"category_container\" style=\"width:404px\">";
+              } else {
+                str += "<ul class=\"category_container\" style=\"width:202px\">";
+              }
               for (var k = 0; k < nav_list_sub.length; k++) {
                 str += "\n                <li class=\"category_item\">\n                  <a href=\"#\" class=\"link\" id=\"" + nav_list_sub[k].id + "\">\n                    <img src=\"" + nav_list_sub[k].image + "\" class=\"picture\">\n                    <span class=\"sub_title\">" + nav_list_sub[k].name + "</span>\n                  </a>\n                </li>\n                ";
               }
@@ -49,11 +63,12 @@ define(["jquery-1.11.3.min", "home_insert", "home_behavior"], function ($, I, B)
     });
     //主页主体部分加载数据并插入节点
     $.ajax({
-      url: "json/home.json",
+      url: "../json/home.json",
       success: function success(home_json) {
+        I.check();
         //轮播图插入
         var home_carousel = home_json.data.home_carousel;
-        I.slide_show && I.slide_show(home_carousel);
+        I.slide_show && I.slide_show(home_carousel, B.ca);
         //热门活动插入
         var home_activities = home_json.data.home_activities;
         I.hot_active && I.hot_active(home_activities);
@@ -63,6 +78,7 @@ define(["jquery-1.11.3.min", "home_insert", "home_behavior"], function ($, I, B)
         //页面主体插入
         var home_floors = home_json.data.home_floors;
         I.goods && I.goods(home_floors);
+        I.end();
       },
       error: function error(msg) {
         console.log(msg);
@@ -71,12 +87,16 @@ define(["jquery-1.11.3.min", "home_insert", "home_behavior"], function ($, I, B)
   }
   //主页个别动作设置
   function behavior() {
-    B.ca();
+    B.check();
+    //B.ca();
     B.n_s();
     B.h_g_o();
+    B.end();
   }
   return {
+    check: check,
     ins: insert,
-    beh: behavior
+    beh: behavior,
+    end: end
   };
 });

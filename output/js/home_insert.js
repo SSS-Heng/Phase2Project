@@ -1,7 +1,13 @@
 "use strict";
 
-define(["jquery-1.11.3.min"], function ($) {
-  function slide_show(home_carousel) {
+define(["jquery"], function ($) {
+  function check() {
+    console.log("home_insert.js开始执行");
+  }
+  function end() {
+    console.log("home_insert.js执行结束");
+  }
+  function slide_show(home_carousel, callback) {
     //轮播图加载插入
     var data = home_carousel;
     var str = "";
@@ -20,6 +26,7 @@ define(["jquery-1.11.3.min"], function ($) {
     }
     $("" + str).appendTo($(".carousel_img_insert"));
     $("" + str1).appendTo($(".carousel_tab_insert"));
+    callback();
   }
   function hot_active(home_activities) {
     //热门活动加载插入
@@ -53,12 +60,15 @@ define(["jquery-1.11.3.min"], function ($) {
       }
       str += "\n      </aside>\n      </section>\n      </div>\n      ";
       $("" + str).insertBefore($(".normal_shop_insert"));
+      str = "";
     }
   }
   return {
+    check: check,
     slide_show: slide_show,
     hot_active: hot_active,
     hot_goods: hot_goods,
-    goods: goods
+    goods: goods,
+    end: end
   };
 });

@@ -1,9 +1,16 @@
-define(["jquery-1.11.3.min","home_insert","home_behavior"],function($,I,B){
+define(["jquery","home_insert","home_behavior"],function($,I,B){
+  function check(){
+    console.log("home.js开始执行");
+    console.log($?"ok":"error");
+  }
+  function end(){
+    console.log("home.js执行结束");
+  }
   //json读取并绘制主页html（不包括购物车）
   function insert(){
     //二级导航加载数据并插入节点
     $.ajax({
-      url: "json/second_nav.json",
+      url: "../json/second_nav.json",
       success: function(json_arr){
         let nav = json_arr;
         let str = ``;
@@ -27,14 +34,20 @@ define(["jquery-1.11.3.min","home_insert","home_behavior"],function($,I,B){
           for(let j = 0; j < nav_list.length; j++){
             str += `<li class="item">`;
             if(type == "category"){//种类导航
+              let nav_list_sub = nav_list[j].sub;
               str += `
               <div class="container">
                 <div class="title">
                   <a href="#">${nav_list[j].title}</a>
                 </div>
-                <ul class="category_container">
               `;
-              let nav_list_sub = nav_list[j].sub;
+              if(nav_list_sub.length > 8){
+                str += `<ul class="category_container" style="width:606px">`;
+              }else if (nav_list_sub.length > 4){
+                str += `<ul class="category_container" style="width:404px">`;
+              }else{
+                str += `<ul class="category_container" style="width:202px">`;
+              }
               for(let k = 0; k < nav_list_sub.length; k++){
                 str += `
                 <li class="category_item">
@@ -69,11 +82,12 @@ define(["jquery-1.11.3.min","home_insert","home_behavior"],function($,I,B){
     });
     //主页主体部分加载数据并插入节点
     $.ajax({
-      url: "json/home.json",
+      url: "../json/home.json",
       success: function(home_json){
+        I.check();
         //轮播图插入
         let home_carousel = home_json.data.home_carousel;
-        I.slide_show&&I.slide_show(home_carousel);
+        I.slide_show&&I.slide_show(home_carousel,B.ca);
         //热门活动插入
         let home_activities = home_json.data.home_activities;
         I.hot_active&&I.hot_active(home_activities);
@@ -83,6 +97,7 @@ define(["jquery-1.11.3.min","home_insert","home_behavior"],function($,I,B){
         //页面主体插入
         let home_floors = home_json.data.home_floors;
         I.goods&&I.goods(home_floors);
+        I.end();
       },
       error: function(msg){
         console.log(msg);
@@ -91,12 +106,16 @@ define(["jquery-1.11.3.min","home_insert","home_behavior"],function($,I,B){
   }
   //主页个别动作设置
   function behavior(){
-    B.ca();
+    B.check();
+    //B.ca();
     B.n_s();
     B.h_g_o();
+    B.end();
   }
   return {
+    check,
     ins:insert,
-    beh:behavior
+    beh:behavior,
+    end
   };
 });
