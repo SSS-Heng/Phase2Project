@@ -43,4 +43,6 @@ Time|Name|Event
 
 Time|Name|Event  
 :-:|:-:|:-  
-9:00|SSS-Heng|继续编写signin.html以及signin.scss  
+09:00|SSS-Heng|继续编写signin.html以及signin.scss  
+11:20|SSS-Heng|上传"30日中午的修改"  
+12:16|SSS-Heng|上传"30日中午追加的修改"

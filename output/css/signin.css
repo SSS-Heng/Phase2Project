@@ -298,6 +298,22 @@ input {
   background: #6383c6;
   background: linear-gradient(#6383c6, #4262af); }
 
+a.submit {
+  background: #5f7ed7;
+  background: linear-gradient(#6f97e5, #527ed9);
+  box-shadow: inset 0 1px 2px #7ea1e8;
+  color: #fff;
+  text-shadow: #4f70b3 0 -1px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all .3s ease; }
+  a.submit:hover {
+    box-shadow: inset 0 1px 1px #7696de, inset 0 0 2px #627dca, inset 0 -2px 3px #5a77c7, inset 0 0 100px rgba(48, 77, 147, 0.4); }
+
 .clearfix::after {
   content: "";
   height: 0;
