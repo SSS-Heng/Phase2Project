@@ -36,4 +36,11 @@ Time|Name|Event
 12:10|SSS-Heng|上传"29日中午的修改"  
 15:00|SSS-Heng|部分文件重命名  
 15:00|SSS-Heng|上传"29日下午的修改"  
+18:00|SSS-Heng|编写signin.html同时编写signin.scss  
 21:15|SSS-Heng|上传"29日晚上的修改"
+
+## 2020\.09\.30  
+
+Time|Name|Event  
+:-:|:-:|:-  
+9:00|SSS-Heng|继续编写signin.html以及signin.scss  

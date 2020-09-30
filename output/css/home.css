@@ -66,6 +66,15 @@ body {
   font-size: 14px;
   font-family: 华文黑体,"Microsoft YaHei",微软雅黑,STHei,"Helvetica Neue",Helvetica,Arial,sans-serif; }
 
+a {
+  color: #5079d9;
+  cursor: pointer;
+  text-decoration: none;
+  -moz-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease; }
+
 a, a:link, a:visited, a:hover, a:active {
   background-color: transparent;
   color: #666;

@@ -17,7 +17,7 @@ define(["jquery"],function($){
         str += `<div class="swiper_slide">`;
         str1 += `<span class="swiper_pagination_bullet"></span>`;
       }
-      str += `<a href="${data[i].link}">`;
+      str += `<a href="${data[i].link}" target="_blank">`;
       str += `<img src="${data[i].image[0]}" alt="banner" class="banner_img">`;
       str += `
       </a>
@@ -35,7 +35,7 @@ define(["jquery"],function($){
       str += `
       <figure class="advertise">
         <img src="${data[i].image}" alt="广告位图片">
-        <a href="${data[i].link}" class="ad_click_mask"></a>
+        <a href="${data[i].link}" class="ad_click_mask" target="_blank"></a>
       </figure>
       `;
     }
@@ -45,11 +45,11 @@ define(["jquery"],function($){
     let data = home_hot;
     let str = ``;
     for(let i = 0; i < data.length; i++){
-      let sku = data[i].spu.sku_info[0]
+      let sku = data[i].spu.sku_info[0];
       str += `
-      <section class="spu_item_normal_box" id="${sku.id}">
+      <section class="spu_item_normal_box" id="${sku.sku_id}">
         <figure class="item_cover">
-          <a href="https://www.smartisan.com/item/${sku.id}"><img src="${sku.ali_image}" alt="商品图片"></a>
+          <a href="https://www.smartisan.com/item/${sku.sku_id}" target="_blank"><img src="${sku.ali_image}" alt="商品图片"></a>
         </figure>
         <article>
           <h3>${sku.title}</h3>
@@ -82,15 +82,15 @@ define(["jquery"],function($){
           <aside class="common_flex_box multi_line flex_four">
             <figure class="advertise flex_2in4">
               <img src="${tab_items[0].image}" alt="广告大图">
-              <a href="${tab_items[0].link}" class="ad_click_mask"></a>
+              <a href="${tab_items[0].link}" class="ad_click_mask" target="_blank"></a>
             </figure>
       `;
       for(let j = 1; j < tab_items.length; j++){
         let sku_info = tab_items[j].spu.sku_info[0];
         str += `
-        <section class="spu_item_normal_box flex_item">
+        <section class="spu_item_normal_box flex_item" id="${sku_info.sku_id}">
           <figure class="item_cover">
-            <a href="https://www.smartisan.com/item/${sku_info.id}"><img src="${sku_info.ali_image}"></a>
+            <a href="https://www.smartisan.com/item/${sku_info.sku_id}" target="_blank"><img src="${sku_info.ali_image}"></a>
           </figure>
           <article>
             <h3>${sku_info.title}</h3>
