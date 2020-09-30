@@ -1,5 +1,11 @@
 @import "reset";
 @import "mixin";
+a:hover{
+	color: #406dd6;
+}
+.clearfix::after{
+  @include clearBoth;
+}
 .wrapper{
   background-image: url(../img/bg.png);
   background-size: 100px;
@@ -71,6 +77,30 @@
         &:first-child{
           float: left;
         }
+      }
+    }
+  }
+  .login_form{
+    .remember{
+      margin: 15px 5px 25px;
+      height: 12px;
+      .auto{
+        color: #999;
+        float: left;
+        font-size: 12px;
+        cursor: pointer;
+        padding-left: 22px;
+        .checkbox{
+          position: absolute;
+          top: -4px;
+          left: -2px;
+        }
+      }
+      .forgotpassword{
+        float: left;
+        font-size: 12px;
+        width: 50px;
+        white-space: nowrap;
       }
     }
   }
@@ -167,6 +197,14 @@
       }
     }
   }
+  &.login_form{
+    .remember{
+      .forgotpassword{
+        float: right;
+        margin-right: 3px;
+      }
+    }
+  }
 }
 .login_three{
   li{
@@ -179,7 +217,7 @@
     background-size: 110px 17px;
     background-position: 1px 0;
     background-repeat: no-repeat;
-    transition: all 1s ease;
+    transition: all .5s ease;
     &.text{
       background-image: none;
       margin-left: 0;
@@ -188,6 +226,9 @@
       font-size: 100%;
       cursor: default;
       color: #999;
+      &:hover{
+        background-image: none;
+      }
     }
     &.wechat{
       margin-left: 10px;
@@ -250,6 +291,115 @@ a.submit{
     box-shadow: inset 0 1px 1px #7696de, inset 0 0 2px #627dca, inset 0 -2px 3px #5a77c7, inset 0 0 100px rgba(48,77,147,.4);
   }
 }
-.clearfix::after{
-  @include clearBoth;
+.common_form{
+  li{
+    clear: both;
+    margin-bottom: 15px;
+    position: relative;
+    &.password{
+      .icon{
+        i{
+          background-position: -49px 0;
+        }
+      }
+    }
+  }
+}
+.input{
+  background: #fff;
+  box-shadow: 0 3px 5px -4px rgba(0,0,0,.4) inset, -1px 0 3px -2px rgba(0,0,0,.1) inset;
+  border: #ccc solid 1px;
+  border-radius: 6px;
+  font-size: 18px;
+  height: 46px;
+  line-height: 46px;
+  opacity: .618;
+  position: relative;
+  transition: opacity .3s ease-in;
+  -moz-transition: opacity .3s ease-in;
+  -webkit-transition: opacity .3s ease-in;
+  -o-transition: opacity .3s ease-in;
+  &:hover{
+    opacity: 1!important;
+  }
+  &:focus-within{
+    border: 1px solid #6b93f2;
+    opacity: 1;
+  }
+  .icon{
+    background: -webkit-linear-gradient(#f8f8f8,#fafafa);
+    background: -moz-linear-gradient(#f8f8f8,#fafafa);
+    background: -ms-linear-gradient(#f8f8f8,#fafafa);
+    background: -o-linear-gradient(#f8f8f8,#fafafa);
+    border-radius: 6px 0 0 6px;
+    border-right: solid 1px #ccc;
+    box-shadow: 1px 0 3px -1px rgba(0,0,0,.1);
+    float: left;
+    height: 46px;
+    width: 46px;
+    overflow: hidden;
+    i{
+      background: url(../img/input_icons.png) no-repeat;
+      background-position: -1px 0;
+      cursor: pointer;
+      display: block;
+      height: 46px;
+      width: 46px;
+    }
+  }
+  input{
+    background: rgba(255,255,255,0);
+    border: none;
+    color: #333;
+    font-size: 16px;
+    height: 20px;
+    width: 293px;
+    position: relative;
+    z-index: 10;
+    padding: 12px 12px 12px 15px;
+  }
+  .warning{
+    background: #d16d62;
+    border-radius: 4px;
+    color: #fff;
+    display: none;
+    font-size: 12px;
+    font-weight: 400;
+    height: 26px;
+    line-height: 26px;
+    margin: 10px 0 0;
+    opacity: 0;
+    padding: 0 10px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 10;
+    &.input_error{
+      display: block;
+      opacity: 1;
+    }
+  }
+  &.invalid{
+    border-color: #d16d62!important;
+    opacity: 1!important;
+  }
+}
+.checkbox{
+  background-position: 0 -18px;
+  background: url(../img/checkbox.png) 0 2px no-repeat;
+  float: left;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  a{
+    background: url(../img/checkbox.png) 0 2px no-repeat;
+    display: none;
+    height: 20px;
+    width: 20px;
+  }
+  &.checked{
+    a{
+      display: block;
+    }
+  }
 }

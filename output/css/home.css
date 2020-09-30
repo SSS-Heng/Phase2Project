@@ -77,14 +77,8 @@ a {
 
 a, a:link, a:visited, a:hover, a:active {
   background-color: transparent;
-  color: #666;
   cursor: pointer;
-  text-decoration: none;
-  transition: all 0.15s ease-out;
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  -ms-transition: all 0.15s ease-out;
-  -o-transition: all 0.15s ease-out; }
+  text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400; }
@@ -98,6 +92,11 @@ li {
 
 input {
   line-height: normal; }
+  input[type="password"] {
+    -webkit-text-security: disc !important; }
+  input:focus {
+    outline: 0;
+    outline-offset: 0px; }
 
 .no_script {
   display: block;
