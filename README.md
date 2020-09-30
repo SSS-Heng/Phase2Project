@@ -48,3 +48,6 @@ Time|Name|Event
 12:16|SSS-Heng|上传"30日中午追加的修改"  
 16:40|SSS-Heng|signin.html及signin.scss完成和测试  
 16:42|SSS-Heng|上传"30日下午的修改"  
+22:00|SSS-Heng|重命名signin.scss=>siginin_signup.scss  
+22:00|SSS-Heng|完成signup.html，完善signin_signup.scss，测试  
+23:00|SSS-Heng|上传"30日晚上的修改"  

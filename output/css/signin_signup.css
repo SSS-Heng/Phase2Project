@@ -355,6 +355,10 @@ a.submit {
   position: relative; }
   .common_form li.password .icon i {
     background-position: -49px 0; }
+  .common_form li.email .icon i {
+    background-position: -145px 0; }
+  .common_form li.tel .icon i {
+    background-position: -192px 0; }
 
 .input {
   background: #fff;
@@ -421,6 +425,29 @@ a.submit {
     top: 0;
     z-index: 10; }
     .input .warning.input_error {
+      display: block;
+      opacity: 1; }
+  .input .passed {
+    background: #108801;
+    border-radius: 4px;
+    color: #fff;
+    display: none;
+    font-size: 12px;
+    font-weight: 400;
+    height: 26px;
+    line-height: 26px;
+    margin: 10px 0 0;
+    opacity: 0;
+    padding: 0 10px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 10; }
+    .input .passed.p_strength_low {
+      background: red !important; }
+    .input .passed.p_strength_middle {
+      background: orange !important; }
+    .input .passed.input_ok {
       display: block;
       opacity: 1; }
   .input.invalid {
