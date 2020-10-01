@@ -85,3 +85,10 @@ Time|Name|Event
 9:00|SSS-Heng|创建signin.js、signin_main.js、input_verification.js  
 12:50|SSS-Heng|上传"10月1日上午的修改"  
 23:55|SSS-Heng|上传"10月1日晚上的修改"  
+
+## 2020\.10\.02  
+
+Time|Name|Event  
+:-:|:-:|:-  
+1:55|SSS-Heng|创建signin.php，完善signin.js  
+1:55|SSS-Heng|上传"10月2日凌晨的修改"  

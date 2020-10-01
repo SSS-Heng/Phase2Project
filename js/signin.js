@@ -58,7 +58,41 @@ define(["jquery","input_verification"],function($,IV){
       e.preventDefault();
       let value_username = $("input.username").val();
       let value_pwd = $("input.password").val();
+      if(!value_username){
+        $(".btn.btn_primary").addClass("disabled");
+        $(".u_required").addClass("input_error");
+      }
+      if(!value_pwd){
+        $(".btn.btn_primary").addClass("disabled");
+        $(".p_required").addClass("input_error");
+      }
       //用ajax请求验证
+      if(value_pwd && value_username){
+        $.ajax({
+          type:"POST",
+          url:"127.0.0.1/smartisan/signin.php",
+          data:{
+            username:value_username,
+            password:value_pwd
+          },
+          success:function(msg){
+            let obj = $.parseJSON(msg); 
+            console.log(obj.msg);
+            if(obj.code == 5){
+              $(".p_error").addClass("input_error");
+            }else if(obj.code == 6){
+              $(".u_not_exist").addClass("input_error");
+            }else{
+              alert("登录成功！");
+            }
+          },
+          error:function(msg){
+            console.log(msg);
+          }
+        });
+      }else{
+        console.log("存在空的input，无法联网验证登录");
+      }
     });
   }
   return {

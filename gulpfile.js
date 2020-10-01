@@ -55,6 +55,13 @@ function copy_img(){
 }
 task(copy_img);
 
+function copy_php(){
+  return gulp.src("php/*.php")
+  .pipe(gulp.dest("output/php/"))
+  .pipe(gulp.dest("output/min/php/"));
+}
+task(copy_php);
+
 function copy_css(){
   return gulp.src("css/*.css")
   .pipe(gulp.dest("output/css/"))
@@ -98,13 +105,15 @@ exports.build = gulp.series(gulp.parallel(
   copy_js,
   copy_css,
   copy_json,
-  parse_scss
+  parse_scss,
+  copy_php
 ),min_js);
 
 //监听
 function watch_items(){
   gulp.watch("html/*.html", copy_html);
   gulp.watch("img/*.{jpg,png}", copy_img);
+  gulp.watch("php/*.php", copy_php);
   gulp.watch(["js/*.js","!js/jquery-1.11.3.min.js","!js/require.js","!js/jquery.cookie.js"], copy_js);
   gulp.watch("css/*.css",copy_css);
   gulp.watch("json/*.json", copy_json);
