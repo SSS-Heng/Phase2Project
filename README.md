@@ -7,6 +7,31 @@
 >>+ ./output/min/的内容仅仅是压缩的结果，如果要使用，请先将后缀名中的".min"去掉  
 >>+ 由于利用了jQuery的AJAX请求，请利用服务器运行。
 
+# 函数说明  
+
+## input_verification.js  
+
+验证用户名、邮箱、手机号、密码的函数
+
+    verification(type,data);  
+
+参数|预设值|描述  
+:-:|:-:|:-  
+type||字符串类型,输入验证类型  
+&nbsp;|"tel"|验证手机号，格式：11位数字  
+&nbsp;|"email"|验证邮箱，格式：常见的邮箱格式  
+&nbsp;|"username"|验证用户名，格式：10位以内字母数字下划线汉字  
+&nbsp;|"telAndEmail"|验证登录输入的手机号/邮箱，格式：见上文  
+&nbsp;|"password"|验证密码，格式：6~18位字母数字下划线特殊字符  
+data||字符串类型，获取并验证的数据  
+result||函数返回值，返回验证结果  
+&nbsp;|"X_format_error"|验证的数据格式错误，X_：u_用户名或登录输入的手机号/邮箱，t_手机号，e_邮箱，p_密码  
+&nbsp;|"X_format_ok"|验证的数据格式正确，X_：同上，但没有p_  
+&nbsp;|"false"|传入的数据为空或出现错误,无法验证  
+&nbsp;|"p_strength_low"|密码强度低，纯数字或纯字母  
+&nbsp;|"p_strength_high"|密码强度最强，即包含至少一个数字，一个大写字母，一个小写字母，一个特殊符号  
+&nbsp;|"p_strength_middle"|密码强度中等，即密码格式正确的情况下，除最强和低以外的其他情况  
+
 # 日志  
 
 ## 2020\.09\.28  
@@ -51,3 +76,10 @@ Time|Name|Event
 22:00|SSS-Heng|重命名signin.scss=>siginin_signup.scss  
 22:00|SSS-Heng|完成signup.html，完善signin_signup.scss，测试  
 23:00|SSS-Heng|上传"30日晚上的修改"  
+
+## 2020\.10\.01  
+
+Time|Name|Event  
+:-:|:-:|:-  
+9:00|SSS-Heng|创建signin.js、signin_main.js、input_verification.js  
+12:50|SSS-Heng|上传"10月1日上午的修改"  
