@@ -14,6 +14,7 @@
 验证用户名、邮箱、手机号、密码的函数
 
     verification(type,data);  
+    .verify(type,data);
 
 参数|预设值|描述  
 :-:|:-:|:-  
@@ -83,3 +84,4 @@ Time|Name|Event
 :-:|:-:|:-  
 9:00|SSS-Heng|创建signin.js、signin_main.js、input_verification.js  
 12:50|SSS-Heng|上传"10月1日上午的修改"  
+23:55|SSS-Heng|上传"10月1日晚上的修改"  

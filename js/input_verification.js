@@ -1,11 +1,37 @@
 define(function(){
   //手机号的验证
+  function tel_check(data){
+    let tel_reg = /^\d{11}$/;
+    return tel_reg.test(data);
+  }
   //邮箱的验证
+  function email_check(data){
+    let email_reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return email_reg.test(data);
+  }
   //用户名的验证
+  function username_check(data){
+    let username_reg = /^[_a-zA-Z0-9\u4e00-\u9fa5]{1,10}$/;
+    return username_reg.test(data);
+  }
   //密码的验证
+  function password_check(data){
+    let strength_high_reg = /^\S*(?=\S{6,18})(?=\S*\d)(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[!@#$%^&*?_])\S*$/;
+    let strength_low_reg = /^(\d|[a-zA-Z]){6,18}$/;
+    let format_error_reg = /[^0-9a-zA-Z!@#$%^&*?_]+/;
+    if(format_error_reg.test(data)){
+      return 0;
+    }else if(strength_high_reg.test(data)){
+      return 3;
+    }else if(strength_low_reg.test(data)){
+      return 1;
+    }else{
+      return 2;
+    }
+  }
   //接受数据并按要求验证
   function verification(type,data){
-    let reult = "";
+    let result = "";
     let mark = null;
     if(!data){
       result = "false";
