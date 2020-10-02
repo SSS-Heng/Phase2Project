@@ -37,6 +37,7 @@
                 <input class="email" type="email" name="email" autocomplete="email" placeholder="邮箱">
                 <span class="warning e_required">请输入邮箱或下方手机号</span>
                 <span class="warning e_format_error">邮箱格式错误</span><!--如果符合哪个错误在class中加入"input_error"-->
+                <span class="warning e_already_exist">邮箱已注册</span>
                 <span class="passed e_format_ok">邮箱格式正确</span><!--如果通过在这行class中加入"input_ok"-->
               </div>
             </li>
@@ -48,6 +49,7 @@
                 <input class="tel" type="tel" name="tel" autocomplete="mobile" placeholder="手机号">
                 <span class="warning t_required">请输入手机号或上方邮箱</span>
                 <span class="warning t_format_error">手机号格式错误</span><!--如果符合哪个错误在class中加入"input_error"-->
+                <span class="warning t_already_exist">手机号已注册</span>
                 <span class="passed t_format_ok">手机号格式正确</span><!--如果通过在这行class中加入"input_ok"-->
               </div>
             </li>
@@ -110,6 +112,7 @@
       </h4>
     </div>
   </div>
+  <script type="text/javascript" src="../js/require.js" defer async data-main="../js/signup_main"></script>
   <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TBDW8K" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript>
 </body>
 </html>

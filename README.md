@@ -1,11 +1,11 @@
 
 # Phase2Project  
 
->author : SSS-Heng  
->description:  
+>Author : SSS-Heng  
+>Note : 电商的仿写——锤子商城（仅5个页面）  
 >
 >>+ ./output/min/的内容仅仅是压缩的结果，如果要使用，请先将后缀名中的".min"去掉  
->>+ 由于利用了jQuery的AJAX请求，请利用服务器运行。
+>>+ 由于利用了jQuery的AJAX请求，请在服务器上运行。
 
 # 函数说明  
 
@@ -32,6 +32,16 @@ result||函数返回值，返回验证结果
 &nbsp;|"p_strength_low"|密码强度低，纯数字或纯字母  
 &nbsp;|"p_strength_high"|密码强度最强，即包含至少一个数字，一个大写字母，一个小写字母，一个特殊符号  
 &nbsp;|"p_strength_middle"|密码强度中等，即密码格式正确的情况下，除最强和低以外的其他情况  
+
+# 测试服务器版本  
+
+![server_information](server_info.png)  
+![PHP_support](PHP_support.png)  
+
+# 账户数据库结构  
+
+![database_structure](database_structure.png)  
+![primary](primary.png)  
 
 # 日志  
 
@@ -92,3 +102,5 @@ Time|Name|Event
 :-:|:-:|:-  
 1:55|SSS-Heng|创建signin.php，完善signin.js  
 1:55|SSS-Heng|上传"10月2日凌晨的修改"  
+22:00|SSS-Heng|创建并完成signup.js、signup_main.js、signup.php  
+22:35|SSS-Heng|上传"10月2日晚上的修改"  

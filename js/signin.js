@@ -60,11 +60,15 @@ define(["jquery","input_verification"],function($,IV){
       let value_pwd = $("input.password").val();
       if(!value_username){
         $(".btn.btn_primary").addClass("disabled");
-        $(".u_required").addClass("input_error");
+        $(".u_required").addClass("input_error")
+                        .parents('div.input')
+                        .addClass("invalid");
       }
       if(!value_pwd){
         $(".btn.btn_primary").addClass("disabled");
-        $(".p_required").addClass("input_error");
+        $(".p_required").addClass("input_error")
+                        .parents('div.input')
+                        .addClass("invalid");
       }
       //用ajax请求验证
       if(value_pwd && value_username){
