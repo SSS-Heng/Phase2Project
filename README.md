@@ -109,5 +109,8 @@ Time|Name|Event
 
 Time|Name|Event  
 :-:|:-:|:-  
-14:00|SSS-Heng|对signin.html和signup.html以及关联js做debug  
+14:00|SSS-Heng|对signin.html和signup.html以及关联js做debug（PHP部分未测试）  
 14:00|SSS-Heng|上传"10月3日中文的修改"  
+17:00|SSS-Heng|创建hot_goods.json作为json数据  
+20:08|SSS-Heng|创建goods.html以及goods.scss  
+23:08|SSS-Heng|上传"10月3日晚上的修改"  
