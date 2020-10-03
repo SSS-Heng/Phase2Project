@@ -1,4 +1,4 @@
-define(["jquery","input_verification"],function($,IV){
+define(["jquery","input_ver"],function($,IV){
   function check(){
     console.log("signup.js开始执行");
   }
@@ -25,7 +25,7 @@ define(["jquery","input_verification"],function($,IV){
       if(input_parent.length != 1){console.log("用户名输入框的父节点获取错误");}
       //先隐藏所有的错误信息
       for(let i = 0; i < span_node.length; i++){
-        span_node[i].removeClass("input_error");
+        span_node.eq(i).removeClass("input_error");
       }
       $(".u_format_ok").removeClass("input_ok");
       input_parent.removeClass("invalid");
@@ -56,7 +56,7 @@ define(["jquery","input_verification"],function($,IV){
       if(input_parent.length != 1){console.log("邮箱输入框的父节点获取错误");}
       //先隐藏所有的错误信息
       for(let i = 0; i < span_node.length; i++){
-        span_node[i].removeClass("input_error");
+        span_node.eq(i).removeClass("input_error");
       }
       $(".e_format_ok").removeClass("input_ok");
       input_parent.removeClass("invalid");
@@ -87,7 +87,7 @@ define(["jquery","input_verification"],function($,IV){
       if(input_parent.length != 1){console.log("手机号输入框的父节点获取错误");}
       //先隐藏所有的错误信息
       for(let i = 0; i < span_node.length; i++){
-        span_node[i].removeClass("input_error");
+        span_node.eq(i).removeClass("input_error");
       }
       $(".t_format_ok").removeClass("input_ok");
       input_parent.removeClass("invalid");
@@ -118,7 +118,7 @@ define(["jquery","input_verification"],function($,IV){
       if(input_parent.length != 1){console.log("密码输入框的父节点获取错误");}
       //先隐藏所有的错误信息
       for(let i = 0; i < span_node.length; i++){
-        span_node[i].removeClass("input_error").removeClass("input_ok");
+        span_node.eq(i).removeClass("input_error").removeClass("input_ok");
       }
       input_parent.removeClass("invalid");
       //调用函数验证IV.verify(type,data);
@@ -186,7 +186,7 @@ define(["jquery","input_verification"],function($,IV){
         double_num(time.getSeconds());
         $.ajax({
           type:"POST",
-          url:"127.0.0.1/smartisan/signup.php",
+          url:"http://127.0.0.1:80/smartisan/signup.php",
           data:{
             username:value_username,
             email:value_email,

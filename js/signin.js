@@ -1,4 +1,4 @@
-define(["jquery","input_verification"],function($,IV){
+define(["jquery","input_ver"],function($,IV){
   function check(){
     console.log("signin.js开始执行");
   }
@@ -18,7 +18,7 @@ define(["jquery","input_verification"],function($,IV){
       if(input_parent.length != 1){console.log("输入框的父节点获取错误");}
       //先隐藏所有的错误信息
       for(let i = 0; i < span_node.length; i++){
-        span_node[i].removeClass("input_error");
+        span_node.eq(i).removeClass("input_error");
       }
       input_parent.removeClass("invalid");
       //调用函数验证IV.verify(type,data);
@@ -54,6 +54,13 @@ define(["jquery","input_verification"],function($,IV){
   }
   //登录页面登录验证
   function signin_verification(){
+    $(".checkbox").click(function(){
+      if($(".checkbox.checked").size()){
+        $(".checkbox.checked").removeClass("checked");
+      }else{
+        $(".checkbox").addClass("checked");
+      }
+    })
     $(".submit").click(function (e) { 
       e.preventDefault();
       let value_username = $("input.username").val();
@@ -74,7 +81,7 @@ define(["jquery","input_verification"],function($,IV){
       if(value_pwd && value_username){
         $.ajax({
           type:"POST",
-          url:"127.0.0.1/smartisan/signin.php",
+          url:"http://127.0.0.1:80/smartisan/signin.php",
           data:{
             username:value_username,
             password:value_pwd

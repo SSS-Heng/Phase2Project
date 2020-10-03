@@ -104,3 +104,10 @@ Time|Name|Event
 1:55|SSS-Heng|上传"10月2日凌晨的修改"  
 22:00|SSS-Heng|创建并完成signup.js、signup_main.js、signup.php  
 22:35|SSS-Heng|上传"10月2日晚上的修改"  
+
+## 2020\.10\.03  
+
+Time|Name|Event  
+:-:|:-:|:-  
+14:00|SSS-Heng|对signin.html和signup.html以及关联js做debug  
+14:00|SSS-Heng|上传"10月3日中文的修改"  
