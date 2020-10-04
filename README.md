@@ -114,3 +114,10 @@ Time|Name|Event
 17:00|SSS-Heng|创建hot_goods.json作为json数据  
 20:08|SSS-Heng|创建goods.html以及goods.scss  
 23:08|SSS-Heng|上传"10月3日晚上的修改"  
+
+## 2020\.10\.05  
+
+Time|Name|Event  
+:-:|:-:|:-  
+0:30|SSS-Heng|创建goods.html和goods.scss  
+0:30|SSS-Heng|上传"10月5日凌晨的修改"  
