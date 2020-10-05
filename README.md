@@ -121,3 +121,10 @@ Time|Name|Event
 :-:|:-:|:-  
 0:30|SSS-Heng|创建goods.html和goods.scss  
 0:30|SSS-Heng|上传"10月5日凌晨的修改"  
+
+## 2020\.10\.06  
+
+Time|Name|Event  
+:-:|:-:|:-  
+0:40|SSS-Heng|完成goods.html和goods.scss测试  
+0:40|SSS-Heng|上传"10月6日凌晨的修改"  
