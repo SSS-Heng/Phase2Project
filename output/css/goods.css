@@ -98,6 +98,9 @@ input {
     outline: 0;
     outline-offset: 0px; }
 
+html, body {
+  scroll-behavior: smooth; }
+
 .clearfix::after {
   content: "";
   height: 0;

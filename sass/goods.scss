@@ -1,5 +1,8 @@
 @import "reset";
 @import "mixin";
+html,body{
+  scroll-behavior: smooth;
+}
 .clearfix::after{
   @include clearBoth;
 }

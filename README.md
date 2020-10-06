@@ -128,3 +128,6 @@ Time|Name|Event
 :-:|:-:|:-  
 0:40|SSS-Heng|完成goods.html和goods.scss测试  
 0:40|SSS-Heng|上传"10月6日凌晨的修改"  
+9:00|SSS-Heng|创建shopping_cart.html和shopping_cart.scss  
+23:00|SSS-Heng|完成shopping_cart.html和shopping_cart.scss（警告，未测试）  
+23:10|SSS-Heng|上传"10月6日晚上的修改"  
