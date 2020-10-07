@@ -38,7 +38,7 @@
               </div>
               <div class="cart_list_wrapper">
                 <ul class="cart_list">
-                  <li class="cart_item" shopId="0">
+                  <li class="cart_item" data-id="1">
                     <img
                       src="https://resource.smartisan.com/resource/a668d1a5f41b04ece82d76ded1e94d3a.jpg?x-oss-process=image/resize,w_80/format,webp"
                       class="cart_picture">
@@ -248,7 +248,7 @@
                     </div>
                     <div class="cart_list_wrapper">
                       <ul class="cart_list" style="height: 120px;">
-                        <li class="cart_item" shopId="0">
+                        <li class="cart_item" data-id="1">
                           <img
                             src="https://resource.smartisan.com/resource/a668d1a5f41b04ece82d76ded1e94d3a.jpg?x-oss-process=image/resize,w_80/format,webp"
                             class="cart_picture">
@@ -417,7 +417,7 @@
         <article class="headline">
           <h2>相关推荐</h2>
         </article>
-        <ul class="recommend_items clearfix">
+        <ul class="recommend_items clearfix hot_good_insert">
           <!--伪结构插入点，警告：样式中使用了:nth-child选择,该行不能删除-->
           <li class="recommend_item_four">
             <div class="product_box_item cart_box">
@@ -711,7 +711,7 @@
       </section>
       <!-- 页面总计 -->
       <div class="product_fix_bar">
-        <div class="fix_bar_wrapper">
+        <div class="fix_bar_wrapper" data-id="100061001" data-price="199" data-num="1">
           <h1 class="bar_text">您已选择了</h1>
           <div class="bar_device_info">
             <h1 class="clearfix"> 
@@ -719,7 +719,7 @@
             </h1>
             <h2>黑色</h2>
           </div>
-          <div class="bar_btn"> 加入购物车 </div>
+          <div class="bar_btn add_cart"> 加入购物车 </div>
           <div class="bar_btn white_btn"> 
             <a> 现在购买 </a> 
           </div>
@@ -826,6 +826,7 @@
       </section>
     </div>
   </div>
+  <script type="text/javascript" src="../js/require.js" defer async data-main="../js/goods_main"></script>
 </body>
 
 </html>

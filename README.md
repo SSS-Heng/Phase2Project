@@ -131,3 +131,10 @@ Time|Name|Event
 9:00|SSS-Heng|创建shopping_cart.html和shopping_cart.scss  
 23:00|SSS-Heng|完成shopping_cart.html和shopping_cart.scss（警告，未测试）  
 23:10|SSS-Heng|上传"10月6日晚上的修改"  
+
+## 2020\.10\.08  
+
+Time|Name|Event  
+:-:|:-:|:-  
+0:40|SSS-Heng|新建并完成small_cart.js、goods.js、goods_main.js、shopping_cart.js、shopping_cart_main.js（警告：未测试）  
+0:50|SSS-Heng|上传"10月8日凌晨的修改"  
