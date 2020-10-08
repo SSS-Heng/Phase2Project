@@ -46,7 +46,7 @@
   //6、发送sql语句
   $res = mysql_query($sql);
   //7、取出一行
-  $row = mysqli_fetch_assoc($res);
+  $row = mysql_fetch_assoc($res);
   if($row){
     $responseData['code'] = 5;
     $responseData['msg'] = "用户名已存在";
@@ -57,7 +57,7 @@
   if($email){
     $sql = "SELECT * FROM account WHERE email='{$email}'";
     $res = mysql_query($sql);
-    $row = mysqli_fetch_assoc($res);
+    $row = mysql_fetch_assoc($res);
     if($row){
       $responseData['code'] = 6;
       $responseData['msg'] = "邮箱已注册";
@@ -69,7 +69,7 @@
   if($tel){
     $sql = "SELECT * FROM account WHERE tel='{$tel}'";
     $res = mysql_query($sql);
-    $row = mysqli_fetch_assoc($res);
+    $row = mysql_fetch_assoc($res);
     if($row){
       $responseData['code'] = 7;
       $responseData['msg'] = "手机号已注册";
@@ -79,7 +79,7 @@
   }
   $password = md5(md5(md5($password)."smartisan")."qingdao");
   //10、注册
-  $sql2 = "INSERT INTO users(username,email,tel,password,createtime) VALUES('{$username}','{$email}','{$tel}','{$password}',{$createtime})";
+  $sql2 = "INSERT INTO account(username,email,tel,password,createtime) VALUES('{$username}','{$email}','{$tel}','{$password}','{$createtime}')";
   $res = mysql_query($sql2);
   if(!$res){
     $responseData['code'] = 8;
@@ -90,5 +90,5 @@
   $responseData['msg'] = "注册成功";
   echo json_encode($responseData);
   //11、关闭数据库
-  mysqli_close($link);
+  mysql_close($link);
 ?>

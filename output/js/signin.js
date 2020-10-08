@@ -96,7 +96,10 @@ define(["jquery", "input_ver"], function ($, IV) {
             } else if (obj.code == 6) {
               $(".u_not_exist").addClass("input_error");
             } else {
-              alert("登录成功！");
+              setTimeout(function () {
+                window.location.href = "home.html";
+              }, 2000);
+              alert("登录成功！请点击确定将自动跳转到主页!");
             }
           },
           error: function error(msg) {

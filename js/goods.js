@@ -95,6 +95,26 @@ define(["small_cart","jquery","jquery_cookie"],function(SC,$){
       }
     });
   }
+  //放大镜动画
+  function magnifying_glass(){
+    $(".small").mousemove(function(ev){
+      let l = ev.clientX - $(this).offset().left - 100;
+      let t = ev.clientY - $(this).offset().top - 100;
+      //限制出界
+      l = Math.max(0, l);
+      l = Math.min(200, l);
+      t = Math.max(0, t);
+      t = Math.min(200, t);
+      $(".mark").css({
+        left: l,
+        top: t
+      })
+      $(".big img").css({
+        left: -2 * l,
+        top: -2 * t
+      })
+    })
+  }
   //相关商品插入
   function goods_insert(){
     $.ajax({
@@ -145,7 +165,7 @@ define(["small_cart","jquery","jquery_cookie"],function(SC,$){
   }
   //相关商品加入购物车操作
   function add_goods(){
-    $("button.confirm").live("click", function(){
+    $(".hot_good_insert").on("click","button.confirm", function(){
       //取出当前点击加入购物车按钮的id
       let id = Number($(this).attr("data-id"));
       //1、判断是否是第一次添加
@@ -209,6 +229,8 @@ define(["small_cart","jquery","jquery_cookie"],function(SC,$){
     $(".add_cart").click(function(){
       let id = $(".fix_bar_wrapper").attr("data-id");
       let num = $(".fix_bar_wrapper").attr("data-num");
+      num = Number(num);
+      id = Number(id);
       //1、判断是否是第一次添加
       let first = !($.cookie("goods"));
       if(first){
@@ -226,8 +248,8 @@ define(["small_cart","jquery","jquery_cookie"],function(SC,$){
             break;
           }
         }
-        same ? cookieArr[i].num++ : cookieArr.push({id:id, num: num});
-
+        same ? cookieArr[i].num += num : cookieArr.push({id:id, num: num});
+        console.log(same);
         //3、将处理完的数据存储回去
         $.cookie("goods", JSON.stringify(cookieArr), {
           expires: 7,
@@ -243,6 +265,7 @@ define(["small_cart","jquery","jquery_cookie"],function(SC,$){
     n_s:nav_scroll,
     g_i:goods_insert,
     a_g:add_goods,
+    m_g:magnifying_glass,
     behavior,
     end
   };

@@ -199,8 +199,11 @@ define(["jquery", "input_ver"], function ($, IV) {
             createTime: createTime
           },
           success: function success(msg) {
+            console.log(msg);
             var obj = $.parseJSON(msg);
             console.log(obj.msg);
+            var span_node = $("input").nextAll("span");
+            span_node.removeClass("input_error");
             if (obj.code == 5) {
               //用户名已存在
               $(".u_already_exist").addClass("input_error");
@@ -214,6 +217,7 @@ define(["jquery", "input_ver"], function ($, IV) {
               //注册失败
               alert("网络异常，注册失败！请稍后重试。");
             } else {
+              $("input").val("");
               alert("注册成功！");
             }
           },

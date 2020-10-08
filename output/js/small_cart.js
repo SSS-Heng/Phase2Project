@@ -13,10 +13,12 @@ define(["jquery", "jquery_cookie"], function ($) {
     if (!cookieStr) {
       $(".cart_empty").show();
       $(".cart_list_wrapper").hide();
+      $("span.cart_num").hide();
       return;
     } else {
       $(".cart_empty").hide();
       $(".cart_list_wrapper").show();
+      $("span.cart_num").show();
     }
     //下载所有的商品数据
     $.ajax({
@@ -63,19 +65,22 @@ define(["jquery", "jquery_cookie"], function ($) {
     var total_count = 0;
     var total_money = 0;
     for (var i = 0; i < count_node.length; i++) {
-      total_count += Number(count_node[i].attr('data-count'));
-      total_money += Number(count_node[i].attr('data-count')) * Number(price_node[i].attr('data-price'));
+      total_count += Number(count_node.eq(i).attr('data-count'));
+      total_money += Number(count_node.eq(i).attr('data-count')) * Number(price_node.eq(i).attr('data-price'));
     }
     $("p.total_count strong").html(total_count);
     $("p.total_money span").html(total_money);
   }
   //删除购物内容
   function delete_goods() {
-    $("ul.cart_list .delete_button").live("click", function () {
-      var id = $(this).attr("data-id");
+    console.log("购物车删除函数赋予");
+    $("ul.cart_list").on("click", ".delete_button", function () {
+      console.log("准备删除数据");
+      var id = Number($(this).attr("data-id"));
       $(this).closest("li").remove();
       //删除页面上的节点  从cookie中删除数据
       var cookieArr = JSON.parse($.cookie("goods"));
+      console.log($.cookie("goods"));
       for (var i = 0; i < cookieArr.length; i++) {
         if (cookieArr[i].id == id) {
           cookieArr.splice(i, 1);
@@ -90,11 +95,12 @@ define(["jquery", "jquery_cookie"], function ($) {
         //更新数据数量
         sum_num_price();
       } else {
-        $.cookie("goods", null);
+        $.cookie("goods", null, { path: "/" });
         $(".cart_empty").show();
         $(".cart_list_wrapper").hide();
+        $("span.cart_num").hide();
+        console.log("成功删除数据");
       }
-      console.log("成功删除数据");
     });
   }
   return {

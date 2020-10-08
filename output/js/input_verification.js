@@ -19,9 +19,12 @@ define(function () {
   //密码的验证
   function password_check(data) {
     var strength_high_reg = /^\S*(?=\S{6,18})(?=\S*\d)(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[!@#$%^&*?_])\S*$/;
-    var strength_low_reg = /^(\d|[a-zA-Z]){6,18}$/;
+    var strength_low_reg = /^\d{6,18}|[a-zA-Z]{6,18}$/;
     var format_error_reg = /[^0-9a-zA-Z!@#$%^&*?_]+/;
+    var length_reg = /^\S{6,18}$/;
     if (format_error_reg.test(data)) {
+      return 0;
+    } else if (!length_reg.test(data)) {
       return 0;
     } else if (strength_high_reg.test(data)) {
       return 3;

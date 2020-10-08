@@ -11,8 +11,13 @@ define(["jquery","jquery_cookie"],function($){
     var cookieStr = $.cookie("goods");
     if(!cookieStr){
       $(".cart_insert").html("");
+      $(".text_choose_all").prev().removeClass("checkbox_on");
+      $(".total_num").find("h4 i").text(0);
+      $(".total_num").find("h5 i").text(0);
+      $(".total_price").find("h4 i span").text(0.00);
       return;
     }
+    $(".text_choose_all").prev().addClass("checkbox_on");
     //下载所有的商品数据
     $.ajax({
       url: "../json/hot_goods.json",
@@ -78,7 +83,7 @@ define(["jquery","jquery_cookie"],function($){
                       <div class="quantity">
                         <span class="button down disabled"></span>
                         <span class="num">
-                          <input name="number" readonly="readonly" type="number" value="${newArr[i].num}">
+                          <input name='number' readonly="readonly" type="number" value="${newArr[i].num}">
                         </span>
                         <span class="button up"></span>
                         <!---->
@@ -99,12 +104,12 @@ define(["jquery","jquery_cookie"],function($){
         }
         $(".cart_insert").html(str);
         console.log("加载购物车页面完成");
+        total_data();
       },
       error: function(msg){
         console.log(msg);
       }
     });
-    total_data();
   }
   //统计栏刷新
   function total_data(){
@@ -128,7 +133,7 @@ define(["jquery","jquery_cookie"],function($){
     if(checkbox_node.length){
       for(let i = 0; i < checkbox_node.length; i++){
         let parent_node = checkbox_node.eq(i).closest("div.divide");
-        check_num += parent_node.find("input[name='number']").val();
+        check_num += Number(parent_node.find("input[name='number']").val());
         check_money += Number(parent_node.find(".subtotal span").text());
       }
     }else{
@@ -146,7 +151,7 @@ define(["jquery","jquery_cookie"],function($){
   //购物车操作集合
   function cart_operation(){
     //选择按钮
-    $("div.divide span.m_blue_checkbox_new").live("click",function(){
+    $(".cart_insert").on("click","span.m_blue_checkbox_new",function(){
       $(this).hasClass("checkbox_on") ? $(this).removeClass("checkbox_on"):$(this).addClass("checkbox_on");
       total_data();
     });
@@ -155,8 +160,9 @@ define(["jquery","jquery_cookie"],function($){
       total_data();
     });
     //加减按钮
-    $(".button.down").live("click",function(){
+    $(".cart_insert").on("click","span.button.down",function(){
       let num_node = $(this).next(".num").find("input");
+      let id = Number($(this).closest("div.divide").attr("data-id"));
       let num = Number(num_node.val());
       num--;
       if(num <= 1){
@@ -167,10 +173,18 @@ define(["jquery","jquery_cookie"],function($){
       let price = Number($(this).closest("div.divide").find("div.price span").text());
       let money = price * num;
       $(this).closest("div.divide").find("div.subtotal span").text(money);
+      let cookieArr = JSON.parse($.cookie("goods"));
+      let index = cookieArr.findIndex(item => item.id == id);
+      cookieArr[index].num = num;
+      $.cookie("goods", JSON.stringify(cookieArr), {
+        expires: 7,
+        path:"/"
+      });
       total_data();
     });
-    $(".button.up").live("click",function(){
-      let num_node = $(this).pre(".num").find("input");
+    $(".cart_insert").on("click","span.button.up",function(){
+      let num_node = $(this).prev(".num").find("input");
+      let id = Number($(this).closest("div.divide").attr("data-id"));
       let num = Number(num_node.val());
       num++;
       $(this).closest("div.divide").find(".button.down").removeClass("disabled");
@@ -178,11 +192,18 @@ define(["jquery","jquery_cookie"],function($){
       let price = Number($(this).closest("div.divide").find("div.price span").text());
       let money = price * num;
       $(this).closest("div.divide").find("div.subtotal span").text(money);
+      let cookieArr = JSON.parse($.cookie("goods"));
+      let index = cookieArr.findIndex(item => item.id == id);
+      cookieArr[index].num = num;
+      $.cookie("goods", JSON.stringify(cookieArr), {
+        expires: 7,
+        path:"/"
+      });
       total_data();
     });
     //删除按钮
-    $(".items_delete_btn").live("click",function(){
-      let id = $(this).attr("data-id");
+    $(".cart_insert").on("click",".items_delete_btn",function(){
+      let id = Number($(this).attr("data-id"));
       $(this).closest("div.divide").remove();
       let cookieArr = JSON.parse($.cookie("goods"));
       let index = cookieArr.findIndex(item => item.id == id);
@@ -191,9 +212,9 @@ define(["jquery","jquery_cookie"],function($){
         $.cookie("goods", JSON.stringify(cookieArr), {
           expires: 7,
           path:"/"
-        })
+        });
       }else{
-        $.cookie("goods", null);
+        $.cookie("goods", null,{path:"/"});
       }
       total_data();
     });
@@ -206,7 +227,7 @@ define(["jquery","jquery_cookie"],function($){
       }
       for(let i = 0; i < checkbox_node.length; i++){
         let parent_node = checkbox_node.eq(i).closest("div.divide");
-        let id = parent_node.attr("data-id");
+        let id = Number(parent_node.attr("data-id"));
         parent_node.remove();
         let index = cookieArr.findIndex(item => item.id == id);
         cookieArr.splice(index, 1);
@@ -217,7 +238,7 @@ define(["jquery","jquery_cookie"],function($){
           path:"/"
         })
       }else{
-        $.cookie("goods", null);
+        $.cookie("goods", null,{path:"/"});
       }
       total_data();
     });

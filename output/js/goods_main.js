@@ -23,6 +23,7 @@ require(["jquery", "goods", "small_cart"], function ($, G, SC) {
   G.n_s();
   G.g_i();
   G.a_g();
+  G.m_g();
   G.behavior();
   SC.s_c();
   SC.d_g();

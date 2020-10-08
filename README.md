@@ -139,3 +139,5 @@ Time|Name|Event
 0:40|SSS-Heng|新建并完成small_cart.js、goods.js、goods_main.js、shopping_cart.js、shopping_cart_main.js（警告：未测试）  
 0:46|SSS-Heng|上传"10月8日凌晨的修改"  
 0:50|SSS-Heng|上传"10月8日凌晨的追加修改"  
+16:30|SSS-Heng|整个工程debug完成，工程主要内容基本完成  
+16:36|SSS-Heng|上传"10月8日下午的修改"  

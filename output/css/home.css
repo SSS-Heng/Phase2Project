@@ -543,7 +543,7 @@ div.topbar_aside {
           overflow: hidden; }
           div.topbar_aside div.topbar_aside_cart div.cart_drawer div.cart_list_container div.cart_list_wrapper ul.cart_list {
             width: 380px;
-            max-height: 300px;
+            height: 160px;
             overflow-y: scroll;
             transition: all .3s ease;
             -webkit-transition: all .3s ease;
