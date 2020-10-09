@@ -4,17 +4,18 @@
 >Author : SSS-Heng  
 >Note : 电商的仿写——锤子商城（仅5个页面）  
 >
->>+ ./output/min/的内容仅仅是压缩的结果，如果要使用，请先将后缀名中的".min"去掉  
->>+ 由于利用了jQuery的AJAX请求，请在服务器上运行。
+>>+ ./output/min/的内容仅仅是代码压缩的结果，如果要使用，请先将后缀名中的".min"去掉  
+>>+ 由于CORS，请在服务器上运行。  
+>>+ PHP文件在PHP服务器中的地址:localhost/smartisan/  
 
 # 函数说明  
 
 ## input_verification.js  
 
-验证用户名、邮箱、手机号、密码的函数
+验证用户名、邮箱、手机号、密码的函数  
 
     verification(type,data);  
-    .verify(type,data);
+    .verify(type,data);  
 
 参数|预设值|描述  
 :-:|:-:|:-  
@@ -73,7 +74,7 @@ Time|Name|Event
 15:00|SSS-Heng|部分文件重命名  
 15:00|SSS-Heng|上传"29日下午的修改"  
 18:00|SSS-Heng|编写signin.html同时编写signin.scss  
-21:15|SSS-Heng|上传"29日晚上的修改"
+21:15|SSS-Heng|上传"29日晚上的修改"  
 
 ## 2020\.09\.30  
 
