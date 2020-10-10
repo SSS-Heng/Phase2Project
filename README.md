@@ -3,7 +3,8 @@
 
 >Author : SSS-Heng  
 >Note : 电商的仿写——锤子商城（仅5个页面）  
->
+>  
+>>+ 运行output/html/即可  
 >>+ ./output/min/的内容仅仅是代码压缩的结果，如果要使用，请先将后缀名中的".min"去掉  
 >>+ 由于CORS，请在服务器上运行。  
 >>+ PHP文件在PHP服务器中的地址:localhost/smartisan/  
